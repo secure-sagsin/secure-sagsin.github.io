@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Secure Multi-Hop Relaying in Large-Scale Space-Air-Ground-Sea Integrated
+      Networks
+    </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Large-Scale SAGSIN</p>
+        <h1>
+          Secure Multi-Hop Relaying in Space-Air-Ground-Sea Integrated Networks
+        </h1>
+        <p>
+          Visualizing the communication fabric that links satellites, aerial
+          relays, terrestrial nodes, and maritime assets through resilient
+          multi-hop routing.
+        </p>
+        <div class="hero__actions">
+          <a class="btn primary" href="#abstract">Project Overview</a>
+          <a class="btn ghost" href="#visualization">See the Network</a>
+        </div>
+      </div>
+      <div class="constellation">
+        <div class="orbit orbit--leo"></div>
+        <div class="orbit orbit--haps"></div>
+        <div class="orbit orbit--ground"></div>
+        <div class="node node--leo"></div>
+        <div class="node node--leo node--delay"></div>
+        <div class="node node--haps"></div>
+        <div class="node node--ground"></div>
+        <div class="pulse"></div>
+      </div>
+    </header>
+
+    <main>
+      <section id="abstract" class="panel">
+        <div class="panel__header">
+          <p class="eyebrow">Synopsis</p>
+          <h2>The challenge we solve</h2>
+        </div>
+        <p class="panel__body">
+          SAGSIN relays must provide uninterrupted coverage as information
+          traverses ultra-long distances. Our work establishes a
+          security-conscious multi-hop relaying mechanism that chooses hops
+          across satellites (Space), high-altitude platforms (Air), terrestrial
+          nodes (Ground), and ships (Sea). The approach balances reliability,
+          fairness, and physical security metrics while scaling to thousands of
+          nodes.
+        </p>
+        <ul class="pill-list">
+          <li>Joint spatial connectivity modeling</li>
+          <li>Security-aware routing costs</li>
+          <li>Hybrid exact &amp; learning-based solvers</li>
+        </ul>
+      </section>
+
+      <section id="layers" class="panel panel--grid">
+        <div class="panel__header">
+          <p class="eyebrow">Network Layers</p>
+          <h2>Four intertwined theaters</h2>
+        </div>
+        <div class="grid grid--cards">
+          <article class="card">
+            <h3>Space</h3>
+            <p>
+              LEO assets form the backbone for long-haul hops, knitting distant
+              theaters with predictable latency budgets.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Air</h3>
+            <p>
+              HAPS and UAV relays provide agile mid-tier routing, adapting to
+              congestion while adding redundancy.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Ground</h3>
+            <p>
+              Dense terrestrial stations supply local breakouts, integrating
+              with existing infrastructure and fiber egress points.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Sea</h3>
+            <p>
+              Maritime nodes close coverage gaps along shipping lanes and
+              support over-the-horizon sensing missions.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="relaying" class="panel panel--split">
+        <div>
+          <p class="eyebrow">Method</p>
+          <h2>Secure multi-hop orchestration</h2>
+          <p>
+            Each hop is evaluated using a security-constrained metric that
+            weighs signal-to-interference, relay trust scores, and physical path
+            diversity. The routing engine blends deterministic solvers with
+            learning-guided heuristics to remain scalable even as relay counts
+            increase dramatically.
+          </p>
+          <ul class="list">
+            <li>Adaptive metric aggregation (distance, secrecy, fairness)</li>
+            <li>Multi-objective pathfinding with policy fallbacks</li>
+            <li>Online updates from situational awareness feeds</li>
+          </ul>
+        </div>
+        <div class="timeline">
+          <div class="timeline__step">
+            <span>1</span>
+            <p>Sense topology and trust indicators.</p>
+          </div>
+          <div class="timeline__step">
+            <span>2</span>
+            <p>Generate candidate paths via hybrid solvers.</p>
+          </div>
+          <div class="timeline__step">
+            <span>3</span>
+            <p>Evaluate secrecy &amp; QoS budgets.</p>
+          </div>
+          <div class="timeline__step">
+            <span>4</span>
+            <p>Commit relay plan and monitor for re-routing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="visualization" class="panel panel--highlight">
+        <div class="panel__header">
+          <p class="eyebrow">Visualization</p>
+          <h2>From orbital plane to sea lanes</h2>
+        </div>
+        <p class="panel__body">
+          The mock network below demonstrates how a request originating on land
+          might rise to a satellite backbone before descending toward an oceanic
+          relay chain. Use this section as a placeholder for future WebGL or
+          map-based demos.
+        </p>
+        <div class="map">
+          <div class="map__orbit map__orbit--outer"></div>
+          <div class="map__orbit map__orbit--inner"></div>
+          <div class="map__node map__node--ground"></div>
+          <div class="map__node map__node--sea"></div>
+          <div class="map__node map__node--air"></div>
+          <div class="map__node map__node--space"></div>
+          <div class="map__link map__link--one"></div>
+          <div class="map__link map__link--two"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>
+        Secure SAGSIN visualization • Built for GitHub Pages • Last updated
+        <span id="build-year"></span>
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("build-year").textContent =
+          new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>
