@@ -55,6 +55,15 @@ a {
   text-align: center;
 }
 
+.hero__abstract {
+  margin: 1.5rem auto 0;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 900px;
+  text-align: left;
+  font-size: 1rem;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.3em;
