@@ -49,7 +49,8 @@ a {
 }
 
 .hero__content {
-  width: clamp(352px, 86vw, 1199px);
+  width: min(100%, 1199px);
+  margin: 0 auto;
 }
 
 .hero__content h1 {
@@ -111,15 +112,16 @@ a {
 main {
   display: grid;
   gap: 1.5rem;
-  width: clamp(352px, 86vw, 1199px);
+  width: min(100%, 1199px);
   margin: 0 auto 3rem;
+  padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
 .panel {
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
   backdrop-filter: blur(12px);
 }
 
@@ -249,6 +251,39 @@ footer {
 
 @media (max-width: 640px) {
   .hero {
-    padding-top: 2.5rem;
+    padding: 2.5rem 1.25rem 3.5rem;
+  }
+
+  main {
+    padding: 0 1.25rem;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__content h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero__abstract {
+    font-size: 0.95rem;
+  }
+
+  .hero__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .panel {
+    padding: 1.25rem;
+  }
+
+  .pdf-viewer iframe {
+    height: min(65vh, 540px);
   }
 }
