@@ -179,6 +179,18 @@ pre {
   overflow-x: auto;
 }
 
+.code-block {
+  font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  background: rgba(1, 2, 7, 0.85);
+}
+
+.code-block code {
+  display: block;
+  white-space: pre;
+}
+
 footer {
   text-align: center;
   padding: 2rem 1rem 3rem;

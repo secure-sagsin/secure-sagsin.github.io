@@ -67,6 +67,14 @@
           <li>Security-aware routing costs</li>
           <li>Hybrid exact &amp; learning-based solvers</li>
         </ul>
+        <pre class="code-block"><code>import datetime as dt
+from ssir import environment as env
+
+# Hook directly into the open dataset
+haps_coords = env.load_haps_positions(
+    str(map_dir / "haps_positions.csv"),
+    dt.datetime(2020, 9, 28, 10, 0),
+)</code></pre>
       </section>
 
       <section id="appendices" class="panel">
