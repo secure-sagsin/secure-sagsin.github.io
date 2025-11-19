@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,22 +25,24 @@
         <p>Dataset demonstrations and appendices</p>
         <p class="hero__abstract">
           (Abstract) We stand at the dawn of ubiquitous connectivity through 6G
-          wireless, but its foundational reliability is threatened by the presence
-          of invisible eavesdroppers (Eves). While the majority of research has relied
-          on the unrealistic assumption of knowing Eve's position and channel state, this
-          study tackles the challenge of secure multi-hop relaying without any Eve
-          channel information. We (i) reformulate the notoriously intractable max-min
-          secrecy-throughput problem into a tractable design, yielding an
-          O(1) globally optimal radio-resource allocation; (ii) derive a
-          closed-form expression of strictly positive secure connection probability
-          under unknown Eve conditions and validate it across Rayleigh, Rician, and
-          shadowed Rician fading; and (iii) construct the world's first open SAGSIN
-          dataset, integrating SpaceX satellites, Google Loon HAPS, commercial 4G/5G
-          base stations, and maritime vessels to bridge theory with real-world NTNs.
-          This work pioneers a new physical-layer paradigm that guarantees security under
-          uncertainty. It represents a game-changer for secure throughput-aware design in
-          6G non-terrestrial networks, laying the groundwork for the next era of resilient
-          ubiquitous connectivity.
+          wireless, but its foundational reliability is threatened by the
+          presence of invisible eavesdroppers (Eves). While the majority of
+          research has relied on the unrealistic assumption of knowing Eve's
+          position and channel state, this study tackles the challenge of secure
+          multi-hop relaying without any Eve channel information. We (i)
+          reformulate the notoriously intractable max-min secrecy-throughput
+          problem into a tractable design, yielding an O(1) globally optimal
+          radio-resource allocation; (ii) derive a closed-form expression of
+          strictly positive secure connection probability under unknown Eve
+          conditions and validate it across Rayleigh, Rician, and shadowed
+          Rician fading; and (iii) construct the world's first open SAGSIN
+          dataset, integrating SpaceX satellites, Google Loon HAPS, commercial
+          4G/5G base stations, and maritime vessels to bridge theory with
+          real-world NTNs. This work pioneers a new physical-layer paradigm that
+          guarantees security under uncertainty. It represents a game-changer
+          for secure throughput-aware design in 6G non-terrestrial networks,
+          laying the groundwork for the next era of resilient ubiquitous
+          connectivity.
         </p>
         <div class="hero__actions">
           <a class="btn primary" href="#dataset">Dataset Usage</a>
@@ -56,14 +58,25 @@
           <h2>Dataset Usage</h2>
         </div>
         <p class="panel__body">
-          The <a href="https://github.com/secure-sagsin/sagsin-dataset" target="_blank" rel="noreferrer">SAGSIN dataset</a>
-          ships with <code>tutorial.ipynb</code> covering (1) a synthetic Natural-Earth sandbox, (2) the Madagascar–Mozambique
-          channel (OpenCelliD + AIS + Sep. 2020 HAPS), and (3) a Western North America corridor that fuses Mexican and U.S.
-          coastal infrastructure. Recreate every map by copying the lon/lat windows straight into <code>env.DataManager</code>.
+          The
+          <a
+            href="https://github.com/secure-sagsin/sagsin-dataset"
+            target="_blank"
+            rel="noreferrer"
+            >SAGSIN dataset</a
+          >
+          ships with <code>tutorial.ipynb</code> covering (1) a synthetic
+          Natural-Earth sandbox, (2) the Madagascar–Mozambique channel
+          (OpenCelliD + AIS + Sep. 2020 HAPS), and (3) a Western North America
+          corridor that fuses Mexican and U.S. coastal infrastructure. Recreate
+          every map by copying the lon/lat windows straight into
+          <code>env.DataManager</code>.
         </p>
         <p class="panel__body">
-          Once a window is fixed, the loader fuses Starlink snapshots, HAPS trails, terrestrial cells, maritime tracks,
-          and manual users automatically, so you can concentrate on secure-routing objectives instead of wrangling CSVs.
+          Once a window is fixed, the loader fuses Starlink snapshots, HAPS
+          trails, terrestrial cells, maritime tracks, and manual users
+          automatically, so you can concentrate on secure-routing objectives
+          instead of wrangling CSVs.
         </p>
         <div class="code-block">
           <p class="code-heading">🔥 Quickstart</p>
@@ -78,17 +91,33 @@ haps_coords = env.load_haps_positions(
         </div>
         <p class="panel__body">
           The screenshots below were produced by running
-          <code>python scripts/render_sagsin_maps.py</code>, which repackages the notebook flows into a CLI
-          that saves tight-bound PNGs.
+          <a
+            href="https://github.com/secure-sagsin/secure-sagsin.github.io/blob/main/scripts/render_sagsin_maps.py"
+            target="_blank"
+            rel="noreferrer"
+            >render_sagsin_maps.py</a
+          >.
         </p>
         <div class="figure-grid">
           <figure>
-            <img src="assets/figures/madagascar_channel.png" alt="Madagascar–Mozambique Channel map" />
-            <figcaption>Madagascar–Mozambique Channel • Joint spatial connectivity across AIS, OpenCelliD, HAPS, and Starlink.</figcaption>
+            <img
+              src="assets/figures/madagascar_channel.png"
+              alt="Madagascar–Mozambique Channel map"
+            />
+            <figcaption>
+              Madagascar–Mozambique Channel • Joint spatial connectivity across
+              AIS, OpenCelliD, HAPS, and Starlink.
+            </figcaption>
           </figure>
           <figure>
-            <img src="assets/figures/western_north_america.png" alt="Western North America map" />
-            <figcaption>Western North America corridor • Combine coastal ground nodes, maritime relays, and user demand over the Pacific rim.</figcaption>
+            <img
+              src="assets/figures/western_north_america.png"
+              alt="Western North America map"
+            />
+            <figcaption>
+              Western North America corridor • Combine coastal ground nodes,
+              maritime relays, and user demand over the Pacific rim.
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -116,8 +145,10 @@ haps_coords = env.load_haps_positions(
           <h2>HAPS parsing demo</h2>
         </div>
         <p class="panel__body">
-          Twelve months of stratified balloon telemetry (Jan&nbsp;1–Dec&nbsp;31, 2020, sampled every 6&nbsp;hours) parsed from the
-          Stratocat-hosted Google Loon program logs and visualized as a continuous stratospheric relay trajectory.
+          Twelve months of stratified balloon telemetry (Jan&nbsp;1–Dec&nbsp;31,
+          2020, sampled every 6&nbsp;hours) parsed from the Stratocat-hosted
+          Google Loon program logs and visualized as a continuous stratospheric
+          relay trajectory.
         </p>
         <video
           id="haps-video"
@@ -130,26 +161,25 @@ haps_coords = env.load_haps_positions(
           src="haps_2020_6h.mp4"
         ></video>
       </section>
-
     </main>
 
     <footer></footer>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const video = document.getElementById("haps-video");
+      document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('haps-video')
         if (video) {
           const tryPlay = () => {
-            const playPromise = video.play();
+            const playPromise = video.play()
             if (playPromise !== undefined) {
               playPromise.catch(() => {
-                setTimeout(tryPlay, 500);
-              });
+                setTimeout(tryPlay, 500)
+              })
             }
-          };
-          tryPlay();
+          }
+          tryPlay()
         }
-      });
+      })
     </script>
   </body>
 </html>
