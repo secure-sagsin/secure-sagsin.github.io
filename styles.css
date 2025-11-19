@@ -219,7 +219,11 @@ footer {
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) / 1.2);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
+  background: #ffffff;
+  color: #05060a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .figure-grid img {
@@ -231,7 +235,8 @@ footer {
 .figure-grid figcaption {
   padding: 0.75rem 1rem 1rem;
   font-size: 0.85rem;
-  color: var(--muted);
+  color: #222;
+  flex-grow: 1;
 }
 
 .panel--video video {
