@@ -111,7 +111,7 @@ a {
 main {
   display: grid;
   gap: 1.5rem;
-  width: min(860px, calc(100% - 2rem));
+  width: min(1040px, calc(100% - 2rem));
   margin: 0 auto 3rem;
 }
 
