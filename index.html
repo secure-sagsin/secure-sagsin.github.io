@@ -65,15 +65,17 @@
           Once a window is fixed, the loader fuses Starlink snapshots, HAPS trails, terrestrial cells, maritime tracks,
           and manual users automatically, so you can concentrate on secure-routing objectives instead of wrangling CSVs.
         </p>
-        <p class="code-label">Use it like this:</p>
-        <pre class="code-block"><code>import datetime as dt
-from ssir import environment as env
+        <div class="code-block">
+          <p class="code-heading">### 🔥 Quickstart</p>
+          <pre><code>import datetime as dt
+from sagsin import environment as env
 
 # Hook directly into the open dataset
 haps_coords = env.load_haps_positions(
     str(map_dir / "haps_positions.csv"),
     dt.datetime(2020, 9, 28, 10, 0),
 )</code></pre>
+        </div>
         <p class="panel__body">
           The screenshots below were produced by running
           <code>python scripts/render_sagsin_maps.py</code>, which repackages the notebook flows into a CLI
