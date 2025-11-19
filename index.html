@@ -52,28 +52,19 @@
     <main>
       <section id="dataset" class="panel">
         <div class="panel__header">
-          <p class="eyebrow">Dataset Usage</p>
-          <h2>How to explore the data</h2>
+          <h2>Dataset Usage</h2>
         </div>
         <p class="panel__body">
           The <a href="https://github.com/secure-sagsin/sagsin-dataset" target="_blank" rel="noreferrer">SAGSIN dataset</a>
-          ships with a <code>tutorial.ipynb</code> that walks through three representative scenes:
-          (1) a synthetic Natural Earth environment,
-          (2) the Madagascar–Mozambique Channel with OpenCelliD + AIS + September 2020 HAPS logs, and
-          (3) the Western North America corridor that fuses Mexican and U.S. coastal assets.
-          Configure <code>env.DataManager</code> with the lon/lat windows noted in the notebook to re-create
-          each map in a few lines.
+          ships with <code>tutorial.ipynb</code> covering (1) a synthetic Natural-Earth sandbox, (2) the Madagascar–Mozambique
+          channel (OpenCelliD + AIS + Sep. 2020 HAPS), and (3) a Western North America corridor that fuses Mexican and U.S.
+          coastal infrastructure. Recreate every map by copying the lon/lat windows straight into <code>env.DataManager</code>.
         </p>
         <p class="panel__body">
-          Once a window is fixed, the same loader instantly stitches together satellite snapshots,
-          HAPS trails, terrestrial cells, maritime nodes, and manually defined users, so you can focus
-          on routing objectives rather than data wrangling. The pills below summarize the most common usage patterns.
+          Once a window is fixed, the loader fuses Starlink snapshots, HAPS trails, terrestrial cells, maritime tracks,
+          and manual users automatically, so you can concentrate on secure-routing objectives instead of wrangling CSVs.
         </p>
-        <ul class="pill-list">
-          <li>Joint spatial connectivity modeling</li>
-          <li>Security-aware routing costs</li>
-          <li>Hybrid exact &amp; learning-based solvers</li>
-        </ul>
+        <p class="code-label">이렇게 써라:</p>
         <pre class="code-block"><code>import datetime as dt
 from ssir import environment as env
 
@@ -82,6 +73,21 @@ haps_coords = env.load_haps_positions(
     str(map_dir / "haps_positions.csv"),
     dt.datetime(2020, 9, 28, 10, 0),
 )</code></pre>
+        <p class="panel__body">
+          The screenshots below were produced by running
+          <code>python scripts/render_sagsin_maps.py</code>, which repackages the notebook flows into a CLI
+          that saves tight-bound PNGs.
+        </p>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/figures/madagascar_channel.png" alt="Madagascar–Mozambique Channel map" />
+            <figcaption>Madagascar–Mozambique Channel • Joint spatial connectivity across AIS, OpenCelliD, HAPS, and Starlink.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/figures/western_north_america.png" alt="Western North America map" />
+            <figcaption>Western North America corridor • Combine coastal ground nodes, maritime relays, and user demand over the Pacific rim.</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section id="appendices" class="panel">
@@ -100,6 +106,17 @@ haps_coords = env.load_haps_positions(
             >.
           </p>
         </div>
+      </section>
+
+      <section id="haps-demo" class="panel panel--video">
+        <div class="panel__header">
+          <h2>HAPS parsing demo</h2>
+        </div>
+        <p class="panel__body">
+          Six-hour snippet from <code>haps_positions.csv</code>, parsed and rendered as a motion field to verify the temporal consistency
+          of the open HAPS logs.
+        </p>
+        <video controls playsinline preload="metadata" src="haps_2020_6h.mp4"></video>
       </section>
 
     </main>

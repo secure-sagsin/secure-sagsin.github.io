@@ -180,6 +180,14 @@ pre {
   overflow-x: auto;
 }
 
+.code-label {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .code-block {
   font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
   font-size: 0.9rem;
@@ -197,6 +205,41 @@ footer {
   padding: 2rem 1rem 3rem;
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.figure-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.figure-grid figure {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) / 1.2);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.figure-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure-grid figcaption {
+  padding: 0.75rem 1rem 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.panel--video video {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-top: 1rem;
+  background: #000;
 }
 
 @media (max-width: 640px) {
