@@ -16,6 +16,7 @@ import importlib.util
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATASET_REPO = BASE_DIR.parent / "sagsin-dataset"
 sys.path.insert(0, str(BASE_DIR))
+sys.path.insert(0, str(DATASET_REPO))
 
 ENV_PATH = DATASET_REPO / "sagsin" / "environment.py"
 spec = importlib.util.spec_from_file_location("sagsin_env", ENV_PATH)
@@ -89,11 +90,13 @@ def render_madagascar(out_dir: Path):
         leo_coords=leo_coords,
     )
     pm = _configure_pm()
-    pm.plot(dm, legend=True, save_path=str(out_dir / "madagascar_channel.png"), show=False)
+    fig, _ = pm.plot(dm, legend=True, save_path="", show=False)
+    fig.savefig(out_dir / "madagascar_channel.png", dpi=300, bbox_inches="tight")
+    return (latitude_range, longitude_range)
 
 
-def render_western_na(out_dir: Path):
-    latitude_range = [23, 38]
+def render_western_na(out_dir: Path, base_bounds):
+    latitude_range = [21.3, 39.7]
     longitude_range = [-120, -90]
     random_seed = 3
     random.seed(random_seed)
@@ -159,18 +162,15 @@ def render_western_na(out_dir: Path):
         user_coords=user_coords,
     )
     pm = _configure_pm()
-    pm.plot(
-        dm,
-        legend=True,
-        save_path=str(out_dir / "western_north_america.png"),
-        show=False,
-    )
+    fig, ax = pm.plot(dm, legend=True, save_path="", show=False)
+    ax.set_yticks([23, 28, 33, 38])
+    fig.savefig(out_dir / "western_north_america.png", dpi=300, bbox_inches="tight")
 
 
 def main():
     out_dir = _make_output_dir()
-    render_madagascar(out_dir)
-    render_western_na(out_dir)
+    bounds = render_madagascar(out_dir)
+    render_western_na(out_dir, bounds)
     print(f"Wrote figures into {out_dir}")
 
 
