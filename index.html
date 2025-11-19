@@ -56,11 +56,18 @@
           <h2>How to explore the data</h2>
         </div>
         <p class="panel__body">
-          This prototype release highlights synthetic yet representative
-          topologies spanning satellites, aerial relays, ground assets, and sea
-          lanes. Use the accompanying notebooks to load the graphs, inspect hop
-          metrics, and remix the routing costs for your own experiments. The
-          pills below summarize the most common usage patterns.
+          The <a href="https://github.com/secure-sagsin/sagsin-dataset" target="_blank" rel="noreferrer">SAGSIN dataset</a>
+          ships with a <code>tutorial.ipynb</code> that walks through three representative scenes:
+          (1) a synthetic Natural Earth environment,
+          (2) the Madagascar–Mozambique Channel with OpenCelliD + AIS + September 2020 HAPS logs, and
+          (3) the Western North America corridor that fuses Mexican and U.S. coastal assets.
+          Configure <code>env.DataManager</code> with the lon/lat windows noted in the notebook to re-create
+          each map in a few lines.
+        </p>
+        <p class="panel__body">
+          Once a window is fixed, the same loader instantly stitches together satellite snapshots,
+          HAPS trails, terrestrial cells, maritime nodes, and manually defined users, so you can focus
+          on routing objectives rather than data wrangling. The pills below summarize the most common usage patterns.
         </p>
         <ul class="pill-list">
           <li>Joint spatial connectivity modeling</li>
