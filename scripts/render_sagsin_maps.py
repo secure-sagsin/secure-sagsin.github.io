@@ -117,10 +117,9 @@ def render_western_na(out_dir: Path, base_bounds):
     )
 
     # sample subset for readability
-    ground_coords = random.sample(
-        ground_coords_mex + ground_coords_usa,
-        max(1, int((len(ground_coords_mex) + len(ground_coords_usa)) * 0.2)),
-    )
+    total_ground = ground_coords_mex + ground_coords_usa
+    keep = max(1, int(len(total_ground) * 0.25))
+    ground_coords = random.sample(total_ground, keep)
     maritime_coords = random.sample(
         env.load_maritime_positions(str(map_dir / "maritime_positions.csv")),
         50,
