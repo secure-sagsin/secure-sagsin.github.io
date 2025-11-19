@@ -8,6 +8,7 @@ assets/figures/, and disables interactive display.
 """
 
 import datetime as dt
+import math
 import random
 import sys
 from pathlib import Path
@@ -35,6 +36,13 @@ def _configure_pm():
     pm.fontsize = 12
     pm.markersize = 8
     return pm
+
+
+def _area_metric(lat_range, lon_range):
+    delta_lat = lat_range[1] - lat_range[0]
+    delta_lon = lon_range[1] - lon_range[0]
+    mid_lat = sum(lat_range) / 2
+    return delta_lat * delta_lon * math.cos(math.radians(mid_lat))
 
 
 def render_madagascar(out_dir: Path):
@@ -89,12 +97,27 @@ def render_madagascar(out_dir: Path):
         leo_coords=leo_coords,
     )
     pm = _configure_pm()
-    pm.plot(dm, legend=True, save_path=str(out_dir / "madagascar_channel.png"), show=False)
+    pm.plot(
+        dm,
+        legend=True,
+        save_path=str(out_dir / "madagascar_channel.png"),
+        show=False,
+    )
+    return _area_metric(latitude_range, longitude_range)
 
 
-def render_western_na(out_dir: Path):
-    latitude_range = [23, 38]
-    longitude_range = [-120, -90]
+def render_western_na(out_dir: Path, ref_area_metric: float):
+    lon_min, lon_max = -120, -90
+    longitude_range = [lon_min, lon_max]
+    lon_span = lon_max - lon_min
+
+    latitude_mid = (23 + 38) / 2
+    cos_mid = math.cos(math.radians(latitude_mid))
+    delta_lat = ref_area_metric / (lon_span * cos_mid)
+    latitude_range = [
+        latitude_mid - delta_lat / 2,
+        latitude_mid + delta_lat / 2,
+    ]
     random_seed = 3
     random.seed(random_seed)
 
@@ -169,8 +192,8 @@ def render_western_na(out_dir: Path):
 
 def main():
     out_dir = _make_output_dir()
-    render_madagascar(out_dir)
-    render_western_na(out_dir)
+    area_metric = render_madagascar(out_dir)
+    render_western_na(out_dir, area_metric)
     print(f"Wrote figures into {out_dir}")
 
 
