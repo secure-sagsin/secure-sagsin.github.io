@@ -49,7 +49,7 @@ a {
 }
 
 .hero__content {
-  width: clamp(352px, 68vw, 968px);
+  width: clamp(352px, 86vw, 1199px);
 }
 
 .hero__content h1 {
