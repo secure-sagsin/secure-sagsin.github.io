@@ -117,11 +117,37 @@ haps_coords = env.load_haps_positions(
           Twelve months of stratified balloon telemetry (Jan&nbsp;1–Dec&nbsp;31, 2020, sampled every 6&nbsp;hours) parsed from the
           Stratocat-hosted Google Loon program logs and visualized as a continuous stratospheric relay trajectory.
         </p>
-        <video controls playsinline preload="metadata" autoplay muted loop src="haps_2020_6h.mp4"></video>
+        <video
+          id="haps-video"
+          controls
+          playsinline
+          preload="auto"
+          autoplay
+          muted
+          loop
+          src="haps_2020_6h.mp4"
+        ></video>
       </section>
 
     </main>
 
     <footer></footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById("haps-video");
+        if (video) {
+          const tryPlay = () => {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                setTimeout(tryPlay, 500);
+              });
+            }
+          };
+          tryPlay();
+        }
+      });
+    </script>
   </body>
 </html>
