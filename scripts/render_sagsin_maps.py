@@ -96,7 +96,7 @@ def render_madagascar(out_dir: Path):
 
 
 def render_western_na(out_dir: Path, base_bounds):
-    latitude_range = [21.3, 39.7]
+    latitude_range = [22, 38]
     longitude_range = [-120, -90]
     random_seed = 3
     random.seed(random_seed)
