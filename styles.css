@@ -32,7 +32,7 @@ body {
 }
 
 body {
-  padding-top: 72px;
+  padding-top: 68px;
 }
 
 a {
@@ -80,7 +80,7 @@ a {
 }
 
 .hero {
-  padding: 3rem clamp(1.5rem, 5vw, 6rem) 4rem;
+  padding: 2.5rem clamp(1.25rem, 4vw, 4.5rem) 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,7 +89,7 @@ a {
 }
 
 .hero__content {
-  width: min(960px, 100%);
+  width: min(840px, 100%);
 }
 
 .hero__content h1 {
@@ -150,8 +150,8 @@ a {
 
 main {
   display: grid;
-  gap: 2rem;
-  padding: 0 clamp(1.5rem, 5vw, 6rem) 4rem;
+  gap: 1.5rem;
+  padding: 0 clamp(1rem, 4vw, 5rem) 3rem;
 }
 
 .panel {
@@ -186,6 +186,14 @@ main {
   padding: 0.35rem 0.95rem;
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.pdf-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .pdf-viewer {
