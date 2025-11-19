@@ -8,10 +8,10 @@ assets/figures/, and disables interactive display.
 """
 
 import datetime as dt
+import importlib.util
 import random
 import sys
 from pathlib import Path
-import importlib.util
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATASET_REPO = BASE_DIR.parent / "sagsin-dataset"
@@ -118,7 +118,7 @@ def render_western_na(out_dir: Path, base_bounds):
 
     # sample subset for readability
     total_ground = ground_coords_mex + ground_coords_usa
-    keep = max(1, int(len(total_ground) * 0.25))
+    keep = max(1, int(len(total_ground) * 0.65))
     ground_coords = random.sample(total_ground, keep)
     maritime_coords = random.sample(
         env.load_maritime_positions(str(map_dir / "maritime_positions.csv")),
